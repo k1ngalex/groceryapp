@@ -1,0 +1,45 @@
+@charset "UTF-8";
+#grocery{
+	padding-top:5%;
+	padding-bottom:5%;
+	padding-left:3%;
+	padding-right:3%;
+}
+h3{
+	text-align:center;
+	background-color:yellow;
+	color:black;
+}
+ul {
+	background-color:green;
+	color:black;
+	font-size:24px;
+	}
+li {
+	font-size:24px;
+	background-color:yellow;
+	color:black;
+}
+input {
+	margin-right:2.5%;
+	
+}
+a {
+	float:right;
+}
+#addbtn {
+	float:left;
+	width:25%;
+	position: absolute;
+    right: 0;
+    bottom: 0;
+
+}
+#removebtn {
+	float:right;
+	width:25%;
+	position: absolute;
+    bottom: 0;
+	left:0;
+
+}
