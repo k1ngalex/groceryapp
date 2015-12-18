@@ -11,15 +11,16 @@ $(document).ready(function() {
 });
 
 function save() {
-	
-	localStorage.setItem(itemnum  , (document.getElementById("input").value));
+	if (document.getElementById("input").value === "") {
+	}else{
+	localStorage.setItem(itemnum  /* needs to be a var */  , (document.getElementById("input").value));
 	console.log("saved");
 	$("#list").append("Item"+ " " + (itemnum) + '<li> <input type="checkbox" onClick="savecheck()" id="box' + i + '>' + localStorage.length + 1 + '">' + (document.getElementById("input").value) + '</li>');
 	$('#input').val('');
 	itemnum++;
 	
 	location.reload();
-
+	}
 }
 
 function Delete() {
@@ -38,7 +39,7 @@ function Delete() {
 			swal.showInputError("You need to write something!");
 			return false
 		}
-		
+		//* needs to add one to var *//
 		localStorage.removeItem(inputValue);
 		location.reload();
 	});
