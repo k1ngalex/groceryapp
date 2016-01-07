@@ -9,8 +9,8 @@ $(document).ready(function() {
 		}
 	}
 });
-
-function save() {
+$( document ).ready(function() {
+$("#addbtn").on("click" , function() {
 	if (document.getElementById("input").value === "") {
 	}else{
 	localStorage.setItem(itemnum  /* needs to be a var */  , (document.getElementById("input").value));
@@ -18,12 +18,12 @@ function save() {
 	$("#list").append("Item"+ " " + (itemnum) + '<li> <input type="checkbox" onClick="savecheck()" id="box' + i + '>' + localStorage.length + 1 + '">' + (document.getElementById("input").value) + '</li>');
 	$('#input').val('');
 	itemnum++;
-	
 	location.reload();
 	}
-}
+});
 
-function Delete() {
+
+$("#removebtn").on("click" , function() {
 	swal.showInputError("You need to write something!");
 	swal({
 		title: "Delete",
@@ -43,7 +43,8 @@ function Delete() {
 		localStorage.removeItem(inputValue);
 		location.reload();
 	});
-}
+});
+});
 
  
 //localstoage same key 

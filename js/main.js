@@ -1,30 +1,29 @@
-var itemnum = localStorage.length ;
+var itemnum = localStorage.length;
 $(document).ready(function() {
 	console.log("local storage good");
-	for (i = 0; i < localStorage.length + 10 ; i++) {
-		if (localStorage.getItem(i) === null) {
+	for (i = 0; i < localStorage.length; i++) {
+		if (localStorage.getItem("food" + i) === null) {
 			console.log("skipped");
 			} else {
-			$("#list").append("Item"+ " " + i + '<li>' + '<input type="checkbox" onClick="savecheck()" id="box' + i + '">' + localStorage.getItem(i) + '</li>');
+			$("#list").append(i + '<li>' + '<input type="checkbox" onClick="savecheck()" id="box' + i + '">' + localStorage.getItem("food" + i) + '</li>');
 		}
 	}
 });
 
 function save() {
-	if (document.getElementById("input").value === "") {
-	}else{
-	localStorage.setItem(itemnum  /* needs to be a var */  , (document.getElementById("input").value));
+	localStorage.setItem("food" + itemnum, (document.getElementById("input").value));
 	console.log("saved");
-	$("#list").append("Item"+ " " + (itemnum) + '<li> <input type="checkbox" onClick="savecheck()" id="box' + i + '>' + localStorage.length + 1 + '">' + (document.getElementById("input").value) + '</li>');
+	$("#list").append(itemnum + '<li> <input type="checkbox" onClick="savecheck()" id="box' + i + '>' + localStorage.length + '">' + (document.getElementById("input").value) + '</li>');
 	$('#input').val('');
 	itemnum++;
-	
-	location.reload();
-	}
+}
+
+function savecheck() {
+	localStorage.setItem("check" + i, (document.getElementById("box" + i).value));
+	6console.log("save check");
 }
 
 function Delete() {
-	swal.showInputError("You need to write something!");
 	swal({
 		title: "Delete",
 		text: "Enter The Item Numer to Delete It:",
@@ -39,13 +38,12 @@ function Delete() {
 			swal.showInputError("You need to write something!");
 			return false
 		}
-		//* needs to add one to var *//
-		localStorage.removeItem(inputValue);
+		localStorage.removeItem("food" + inputValue);
 		location.reload();
 	});
 }
 
- 
+
 //localstoage same key 
 //store all as array , single item
 //2d array.
